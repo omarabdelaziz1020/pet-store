@@ -1,0 +1,199 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  background: var(--background-gradient);
+  position: relative;
+
+  // Gradient overlay for depth
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 30% 50%,
+        rgba(139, 92, 246, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 70% 50%,
+        rgba(59, 130, 246, 0.3) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-xl);
+
+    .ant-card-body {
+      padding: var(--space-2xl);
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+
+      h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0 0 var(--space-sm) 0;
+        color: var(--text-primary);
+        background: var(--background-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p {
+        color: var(--text-secondary);
+        font-size: 16px;
+        margin: 0;
+      }
+    }
+
+    .demo-info {
+      background: var(--primary-50);
+      border: 1px solid var(--primary-200);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      margin-bottom: var(--space-xl);
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-secondary);
+
+      strong {
+        color: var(--primary-600);
+        font-weight: 600;
+      }
+    }
+
+    .login-form {
+      .ant-form-item {
+        margin-bottom: var(--space-lg);
+
+        .ant-form-item-label {
+          margin-bottom: var(--space-sm);
+
+          label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+          }
+        }
+
+        .ant-input,
+        .ant-input-password {
+          height: 48px;
+          font-size: 16px;
+          border: 2px solid var(--border);
+          transition: all 0.2s ease;
+
+          &:hover {
+            border-color: var(--primary-400);
+          }
+
+          &:focus {
+            border-color: var(--primary-500);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+          }
+
+          .ant-input {
+            font-size: 16px;
+          }
+        }
+
+        .ant-input-affix-wrapper {
+          height: 48px;
+          padding: 0 16px;
+          border-radius: var(--radius-lg);
+          border: 2px solid var(--border);
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+
+          &:hover {
+            border-color: var(--primary-400);
+          }
+
+          &:focus,
+          &:focus-within {
+            border-color: var(--primary-500);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+          }
+
+          .ant-input {
+            height: auto;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            font-size: 16px;
+
+            &:focus {
+              box-shadow: none;
+            }
+          }
+
+          .anticon {
+            color: var(--text-tertiary);
+            font-size: 16px;
+            margin-right: 12px;
+          }
+        }
+      }
+
+      .ant-btn-primary {
+        width: 100%;
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: var(--radius-lg);
+        background: var(--background-gradient);
+        border: none;
+        margin-top: var(--space-md);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: linear-gradient(
+            135deg,
+            var(--primary-700) 0%,
+            var(--secondary-600) 100%
+          );
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-lg);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+
+        &.ant-btn-loading {
+          background: var(--background-gradient);
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 480px) {
+  .login-container {
+    padding: var(--space-md);
+
+    .login-card .ant-card-body {
+      padding: var(--space-xl);
+    }
+  }
+}

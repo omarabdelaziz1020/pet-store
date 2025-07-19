@@ -1,0 +1,210 @@
+.pet-edit-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  min-height: calc(100vh - 64px);
+
+  .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    text-align: center;
+    padding: var(--space-2xl);
+
+    .error-message {
+      font-size: 18px;
+      color: var(--error-500);
+      margin-bottom: var(--space-xl);
+      font-weight: 500;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+
+      .ant-btn {
+        height: 44px;
+        border-radius: var(--radius-lg);
+        padding: 0 var(--space-lg);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+    }
+  }
+
+  .pet-edit-card {
+    background: var(--surface);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+
+    .ant-card-body {
+      padding: var(--space-2xl);
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--border-light);
+
+      h1 {
+        font-size: 32px;
+        font-weight: 700;
+        margin: 0 0 var(--space-sm) 0;
+        background: var(--background-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.025em;
+      }
+
+      p {
+        color: var(--text-secondary);
+        font-size: 16px;
+        margin: 0;
+      }
+    }
+
+    .pet-form {
+      .ant-form-item {
+        margin-bottom: var(--space-lg);
+
+        .ant-form-item-label {
+          margin-bottom: var(--space-sm);
+
+          label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+          }
+
+          .ant-form-item-required::before {
+            color: var(--error-500);
+          }
+        }
+
+        .ant-input,
+        .ant-select-selector,
+        .ant-input-number {
+          height: 48px;
+          font-size: 16px;
+          border-radius: var(--radius-lg);
+          border: 2px solid var(--border);
+          transition: all 0.2s ease;
+
+          &:hover {
+            border-color: var(--primary-400);
+          }
+
+          &:focus,
+          &.ant-input-focused,
+          &.ant-select-focused .ant-select-selector {
+            border-color: var(--primary-500);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+          }
+        }
+
+        .ant-select-selector {
+          display: flex;
+          align-items: center;
+          padding: 0 12px;
+        }
+
+        .ant-input-number {
+          width: 100%;
+
+          .ant-input-number-input {
+            height: 44px;
+            padding: 0 12px;
+          }
+        }
+
+        .ant-form-item-explain-error {
+          color: var(--error-500);
+          font-size: 12px;
+          margin-top: var(--space-xs);
+        }
+      }
+    }
+
+    .form-actions {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      gap: var(--space-md);
+      justify-content: flex-end;
+
+      .ant-btn {
+        height: 48px;
+        border-radius: var(--radius-lg);
+        padding: 0 var(--space-xl);
+        font-weight: 500;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+
+        &.cancel-btn {
+          flex: 1;
+          max-width: 120px;
+        }
+
+        &.submit-btn {
+          flex: 2;
+          min-width: 140px;
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .pet-edit-page {
+    padding: var(--space-md);
+
+    .pet-edit-card {
+      .ant-card-body {
+        padding: var(--space-lg);
+      }
+
+      .page-header {
+        h1 {
+          font-size: 24px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .form-actions {
+        flex-direction: column;
+
+        .ant-btn {
+          justify-content: center;
+          max-width: unset;
+          min-width: unset;
+        }
+      }
+
+      .ant-form-item {
+        .ant-input,
+        .ant-select-selector,
+        .ant-input-number {
+          font-size: 16px; // Prevent zoom on iOS
+        }
+      }
+    }
+  }
+}
