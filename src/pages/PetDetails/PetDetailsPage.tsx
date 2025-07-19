@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Card, Tag, Button, Image, message } from "antd";
+import { Card, Tag, Button, Image, App } from "antd";
 import {
   EditOutlined,
   ArrowLeftOutlined,
@@ -16,6 +16,7 @@ export default function PetDetailsPage() {
   const [pet, setPet] = useState<Pet | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { message } = App.useApp();
 
   const fetchPet = async () => {
     setLoading(true);
@@ -55,7 +56,7 @@ export default function PetDetailsPage() {
     return () => {
       isMounted = false;
     };
-  }, [id]);
+  }, [id, message]);
 
   const getStatusColor = (status: string) => {
     switch (status) {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Table, Select, Input, Card, Tag, Button, Empty, message } from "antd";
+import { Table, Select, Input, Card, Tag, Button, Empty, App } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import type { Pet } from "../../types/Pet";
@@ -14,6 +14,7 @@ export default function PetListPage() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { message } = App.useApp();
 
   const fetchPets = async () => {
     setLoading(true);

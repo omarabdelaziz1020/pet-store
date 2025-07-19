@@ -4,6 +4,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import { App as AntApp } from "antd";
 import { AuthProvider } from "./providers/AuthProvider";
 import ProtectedRoute from "./providers/ProtectedRoute";
 import LoginPage from "./pages/Login/LoginPage";
@@ -54,7 +55,9 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <AppRoutes />
+        <AntApp>
+          <AppRoutes />
+        </AntApp>
       </Router>
     </AuthProvider>
   );

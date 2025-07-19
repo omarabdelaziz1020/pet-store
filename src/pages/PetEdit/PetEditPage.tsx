@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Form, Input, Select, Button, Card, message } from "antd";
+import { Form, Input, Select, Button, Card, App } from "antd";
 import {
   SaveOutlined,
   ArrowLeftOutlined,
@@ -24,6 +24,7 @@ export default function PetEditPage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [form] = Form.useForm();
+  const { message } = App.useApp();
 
   useEffect(() => {
     async function fetchPet() {
@@ -47,7 +48,7 @@ export default function PetEditPage() {
       }
     }
     fetchPet();
-  }, [id, form]);
+  }, [id, form, message]);
 
   async function handleSubmit(values: EditFormData) {
     setSaving(true);
@@ -68,7 +69,7 @@ export default function PetEditPage() {
 
       if (!res.ok) throw new Error("Failed to update pet");
 
-      message.success("Pet updated successfully!");
+      message.success(`"${values.name}" has been updated successfully!`);
       setPet(updatedPet);
     } catch {
       setError("Failed to update pet");

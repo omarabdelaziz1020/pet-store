@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Input, Button, Card, message } from "antd";
+import { Form, Input, Button, Card, App } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useAuth } from "../../providers/useAuth";
 import { useNavigate } from "react-router-dom";
@@ -18,6 +18,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [form] = Form.useForm<LoginFormData>();
+  const { message } = App.useApp();
 
   const handleLogin = async (values: LoginFormData) => {
     setLoading(true);
